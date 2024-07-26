@@ -48,7 +48,11 @@ const MusicPlayer = ({ song }) => {
 
     return (
         <div className="music-player">
-            <audio ref={audioRef} onTimeUpdate={handleTimeUpdate} controls controlsList="nodownload" />
+            <div className="song-info">
+                <h5>{song.name}</h5>
+                <p>{song.artists.primary.map(artist => artist.name).join(', ')}</p>
+            </div>
+            <audio ref={audioRef} onTimeUpdate={handleTimeUpdate} controls controlsList="nodownload" class="audio" />
             <button onClick={togglePlayPause} className="play-pause-btn">
                 {isPlaying ? 'Pause' : 'Play'}
             </button>
