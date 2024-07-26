@@ -44,3 +44,10 @@
   margin-top: 10px;
   text-align: center;
 }
+
+@media only screen and (max-width:992px){
+  
+  .collapse:not(.show){
+    display: block !important;
+  }
+}
