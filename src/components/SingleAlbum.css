@@ -1,19 +1,24 @@
 /* SingleAlbum.css */
+
 .single-album-container {
     padding: 20px;
+    background-color: #f0fff4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .back-button {
     margin-bottom: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #4caf50;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .back-button:hover {
-    background-color: #0056b3;
+    background-color: #388e3c;
 }
 
 .album-details {
@@ -25,34 +30,58 @@
     height: auto;
 }
 
-.songs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.songs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
 }
 
 .song {
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 10px;
     border: 1px solid #ddd;
     cursor: pointer;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .song img {
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .song h5 {
-    margin: 0;
+    margin: 0 0 5px 0;
     font-size: 16px;
-    flex-grow: 1;
 }
 
 .song p {
     margin: 0;
     font-size: 14px;
     color: #555;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+}
+
+.pagination button.disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
 }
