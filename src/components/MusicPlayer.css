@@ -1,21 +1,55 @@
+/* MusicPlayer.css */
+
 .music-player {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .play-pause-btn {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-left: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .play-pause-btn:hover {
-    background-color: #45a049;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+}
+
+.music-player audio {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.play-pause-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.play-pause-btn:hover {
+  background-color: #388e3c;
+}
+
+.music-player .song-info {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.music-player .song-info h5 {
+  margin: 0;
+  font-size: 16px;
+  color: rgb(2, 1, 1);
+}
+
+.music-player .song-info p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+}
