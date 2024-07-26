@@ -1,0 +1,469 @@
+<style>
+    body{
+      font-family: sans-serif;
+      background-image: url("https://cdn.shopify.com/s/files/1/0864/6996/8169/files/new-bg1.jpg?v=1720161636");
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: top;
+    }
+    #popupMessage {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: none;
+  }
+  
+  #popupMessageText {
+      margin-bottom: 10px;
+  }
+  
+  #closePopup {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+  }
+  
+    .form-section{
+      margin: 40px 20px;
+      .custom-container {
+        .CustomHtmlSignupForm label {display: block;}
+          .CustomHtmlSignupForm{
+          @media only screen and (min-width: 768px) {
+            width: 600px;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+          .heading{
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+          }
+            .parent-name{
+              text-align: center;
+              h2{
+                color: #ffb106;
+                font-weight: 600;
+                font-size: 16px;
+              }
+              span{
+                color: #FFFF;
+              }
+            }
+            .sub-heading{
+              text-align: center;
+              font-size: 0.8rem;
+              font-weight: 700;
+              color: #FFFFFF;
+              strong{
+                color: #efd59a !important;
+              }
+            }
+          fieldset{
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border: 1px solid #c4c4c4;
+          }
+          legend{
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            color: #ffb106;
+          }
+          .country-zip{
+            display: flex;
+            justify-content: space-between;
+            .country{
+              width: 45%;
+            }
+            .zip{
+              width: 45%;
+            }
+          }
+           select, input[type="text"]{
+              height: 50px;
+              border: 1px solid #c4c4c4;
+              border-radius: 5px;
+              box-shadow: inset 0 0 20px #d7d6d6;
+              padding: 0 14px;
+              font-weight: bold;
+             font-family: 'Arial';
+              font-size: 15px;
+              color: #000;
+              text-align: left;
+              outline: none;
+              width: 100%;
+              margin-bottom: 10px;
+            }
+            option{
+              font-size: 16px;
+            }
+            select:focus{
+              background-color: #F7FEFF !important;
+              border-color: #007185 !important;
+              box-shadow: 0 0 0 3px #c8f3fa, 0 1px 2px rgba(15, 17, 17, .15) inset !important;
+            }
+            input[type="text"]:focus{
+              background-color: #F7FEFF !important;
+              border-color: #007185 !important;
+              box-shadow: 0 0 0 3px #c8f3fa, 0 1px 2px rgba(15, 17, 17, .15) inset !important;
+            }
+            label{
+              margin-bottom: 10px;
+              font-weight: 500;
+              font-size: 16px;
+              margin-top: 10px;
+              color: #FFFFFF;
+            }
+            label.error{
+  
+              color: #ff0000;
+              border-color: #ebccd1;
+              padding: 0px 0px 6px 0px;
+              font-style: italic;
+            }
+              .error::after {
+                  content: "*";
+              }
+            .required:after{
+              content: "*";
+              color: white;
+            }
+            .for-name-id{
+              color: #efd59a;
+              font-size: 14px;
+            }
+            .for-example{
+              font-size: 14px;
+              color: #FFFF;
+            }
+            span{
+              font-size: 14px;
+              font-weight: 400;
+              margin-bottom: 10px;
+              color: #efd59a;
+            }
+            .terms{
+            display: flex;
+            margin: 10px 0;
+            cursor: pointer;
+            label{
+              margin-left: 5px;
+              font-weight: 500;
+              @media(max-width: 600px){
+              margin-top: 30px;
+              }
+              strong{
+                color: #2e8df3;
+              }
+            }
+          }
+          input[type="submit"]{
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: #3796fb;
+            border-radius: 10px;
+            border: 1px solid #3796fb;
+            border-bottom: 5px solid #1e76d4;
+            display: inline-block;
+            padding: 13px 30px;
+            text-align: center;
+          }
+          .agree-with-terms{
+            position: relative;
+            display: inline-block;
+          }
+          .agree-with-terms .tooltiptext {
+            display: none;
+            font-family: sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            resize: none;
+            width: 500px;
+            max-width: 500px;
+            height: 400px;
+            max-height: 400px;
+            padding: 10px;
+            background: #f1f1f1;
+            overflow-y: hidden;
+            position: absolute;
+            z-index: 1;
+             @media only screen and (max-width: 575px) {
+               width: 100%;
+              margin-left: 20px;
+              margin-right: 20px;
+             }
+  
+          }
+          .tooltip{
+                color:#1e76d4;
+                font-weight: 700;
+          }
+          .tooltip:hover .tooltiptext {
+            display: block;
+          }
+           .textarea{
+              overflow-y: auto;
+              height: calc(100% - 20px);
+              margin-bottom: 20px;
+              text-align: justify;
+          }
+            ol{
+              li{
+                color: #000000;
+              }
+            }
+        }
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  
+  <section class="form-section">
+  <div class="custom-container">
+    <form
+      class="CustomHtmlSignupForm"
+      id="affiliateSignup"
+      action=""
+      method="post"
+    >
+      <!-- signup_fields -->
+      <div class="SignupForm" id="signUpForm" >
+        <h1 class="heading">Exodus Strong Affiliate Sign-Up</h1>
+        <div class="parent-name">
+          <h2>Referred by: <span id="papname"></span></h2>
+        </div>
+        <h6 class="sub-heading">
+          For Questions or Assistance Call: <strong>214-764-9133</strong> or Email Us:
+          <mailto:strong>champions@exodusstrong.com</strong>
+        </h6>
+  
+        <fieldset>
+          <legend>Referral Information</legend>
+          <label for="data12" class="required"><strong>Who is the Champion who referred you? (Name)</strong></label>
+          <input type="text" id="data12" name="data12">
+          <label for="parentuserid" class="required"
+            ><strong>ID of Champion who referred you (Champion ID)</strong></label
+          >
+          <input type="text" id="parentuserid" name="parentuserid">
+        </fieldset>
+  
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="username" class="required"><strong>Username (Email)</strong></label
+          ><input type="text" id="username" name="username">
+          <div id="rpField" class=""></div>
+          <div id="rpFieldAgain" class=""></div>
+          <label for="firstname" class="required"><strong>First Name</strong></label
+          ><input type="text" id="firstname" name="firstname">
+          <label for="lastname" class="required"><strong>Last Name</strong></label
+          ><input type="text" id="lastname" name="lastname">
+          <label for="refid" class="required"><strong>YOUR Champion Code</strong></label>
+          <input type="text" id="refid" name="refid">
+          <span
+            >What do you want YOUR ID to be? Use a short word that uniquely identifies you. Keep it between 4-15
+            characters with <strong>no special characters or spaces</strong>.</span
+          >
+          <label for="data8">Phone Number(Optional)</label><input type="text" id="data8" name="data8">
+        </fieldset>
+  
+  
+        <div id="payoutMethods" class=""></div>
+  
+        <div class="terms">
+          <input type="checkbox" name="agreeWithTerms" value="Y">
+          <label for="agreeWithTerms" class="agree-with-terms"
+            >I agree to the
+            <a class="tooltip"
+              >Exodus Strong Terms & Conditions*
+              <div class="tooltiptext">
+               
+              </div>
+            </a>
+          </label>
+        </div>
+        <div id="expandTermsAndConditions" class="ExpandTermsAndConditions"></div>
+        <div class="clear"></div>
+        <div id="FormMessage" class=""></div>
+        <div class="h-captcha" data-sitekey="42c17e3b-77b6-4f4e-9620-914a2c0e698e"></div>
+        <input type="submit" value="Signup">
+      </div>
+      <input type="hidden" name="visitorId" id="visitorId" value="">
+    </form>
+  </div>
+  <div id="popupMessage" style="display:none;">
+    <div id="popupMessageText"></div>
+    <button id="closePopup">Close</button>
+  </div>
+  </section>
+  <script id="pap_x2s6df8d" src="https://champion.exodusstrong.com/scripts/wgj12wy" type="text/javascript"></script>
+  <script type="text/javascript">
+  PostAffTracker.track();PostAffTracker.writeAffiliateToCustomField("parentuserid");PostAffTracker.writeCookieToCustomField("visitorId");
+  </script>
+  <script type="text/javascript">
+  if (typeof jQuery == "undefined") {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js";
+      script.onload = function () {
+          loadValidator();
+      }
+      document.getElementsByTagName("head")[0].appendChild(script);
+  } else {
+      loadValidator();
+  }
+  
+  function loadValidator() {
+      if (typeof jQuery.validator == "undefined") {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.js";
+          script.onload = function () {
+              preparePAPform();
+          }
+          document.getElementsByTagName("head")[0].appendChild(script);
+      } else {
+          preparePAPform();
+      }
+  }
+  
+  function preparePayoutMethods() {
+      $("#payoutOptions").on("change", function () {
+          $("div.payoutMethodFields").hide();
+          var payoutMethodsDivId = $(this).val();
+          if (payoutMethodsDivId != "") {
+              $("#" + payoutMethodsDivId).show();
+          }
+      });
+      $("#payoutOptions").val("mk1jfguo").change();
+  }
+  
+  function preparePAPform() {
+      preparePayoutMethods();
+      var signupForm = jQuery("#affiliateSignup"); / ID of the signup form /
+      jQuery.validator.addMethod("referralIDconstrain", function (value, element) {
+          return this.optional(element) || /^[a-z0-9_-]+$/i.test(value);
+      }, " Referral ID can only contain letters, numbers, underscores and hyphens.");
+      jQuery.validator.addMethod("notEqualTo", function (value, element, param) {
+          return this.optional(element) || value != $(param).val();
+      }, " Password is equal to username. Choose another one.");
+      var validator = signupForm.validate({
+          rules: {
+              refid: { required: true, referralIDconstrain: true },
+              notificationemail: { email: true },
+              name: { required: true },
+              firstname: { required: true },
+              lastname: { required: true },
+              username: { required: true, email: true },
+              rpassword: { rangelength: [5, 60], notEqualTo: "#username" },
+              rpFieldAgain: { equalTo: "#rpassword" },
+              agreeWithTerms: { required: true }
+          },
+          messages: {
+              username: "Please enter a valid email address",
+              rpassword: { rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long.") },
+              rpFieldAgain: "Passwords do not match",
+              refid: { required: "Please enter your ID, it will be used in your affiliate links" },
+              agreeWithTerms: "You must accept the terms and conditions"
+          },
+          submitHandler: function (form, event) {
+              event.preventDefault();
+              submitToPAP(signupForm, validator);
+          }
+      });
+  }
+  
+  function submitToPAP(signupForm, validator) {
+      var submitButton = jQuery("#affiliateSignup input[type='submit']");
+      submitButton.attr("disabled", "disabled"); / Disable the submit button to prevent repeated clicks /
+      submitButton.attr("value", "Signing up...");
+      var formArray = signupForm.serializeArray();
+      formArray.push({ name: "method", value: "jsonp" });
+      var formQueryString = jQuery.param(formArray);
+      jQuery.ajax({
+          type: "GET",
+          url: signupForm.attr("action"),
+          data: formQueryString,
+          dataType: "jsonp",
+          success: function (data) {
+              if (data.successMessage != "") {
+                  / action on success, e.g. display success message and redirect to http://www.SuccessUrl.com after 1 second or anything else you'd like instead. /
+                  jQuery("#FormMessage").html(data.successMessage);
+                  submitButton.attr("value", "Redirecting");
+                  setTimeout(function () { window.location = "https://f4bc15-36.myshopify.com/pages/affliate-step-new/"; }, 1000);
+              } else {
+                  / action on error, display the cumulative error message under the form and per field error next to field /
+                  jQuery("#popupMessageText").html(data.cumulativeErrorMessage);
+                  var fieldsError = {};
+                  jQuery.each(data, function (key, value) {
+                      if (key.indexOf("Error") != -1 && key != "cumulativeErrorMessage" && value != "" && formQueryString.indexOf(key.substring(0, key.length - 5)) != -1) {
+                          fieldsError[key.substring(0, key.length - 5)] = value;
+                      }
+                  });
+                  validator.showErrors(fieldsError);
+                  submitButton.removeAttr("disabled");
+                  submitButton.attr("value", "Signup");
+                  jQuery("#popupMessage").show(); // Show popup on error
+              }
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+              var errorMessage = thrownError + " (Error code: " + xhr.status + ")";
+              if (xhr.status == "429") {
+                  errorMessage = "Too Many Requests, try again after some minutes.";
+              }
+              jQuery("#popupMessageText").html(errorMessage);
+              submitButton.removeAttr("disabled");
+              submitButton.attr("value", "Signup");
+              jQuery("#popupMessage").show(); // Show popup on error
+          }
+      });
+  }
+  
+  // Function to update the Champion name in the input field
+  function updateChampionName() {
+      var championName = jQuery("#papname").text();
+      if (championName) {
+          jQuery("#data12").val(championName).attr("readonly", true);
+      } else {
+          setTimeout(updateChampionName, 100); // Retry after 100ms if name is not yet available
+      }
+  }
+  
+  // Close popup button handler
+  jQuery(document).on("click", "#closePopup", function () {
+      console.log("Close button clicked"); // Add this line
+      jQuery("#popupMessage").hide();
+  });
+  
+  // Call the updateChampionName function when the document is ready
+  jQuery(document).ready(function () {
+      updateChampionName();
+  });
+  //hide and show Champion's Team name
+  
+   $(document).ready(function () {
+  var papName = $("#papname").text().trim();
+  
+  setTimeout(function() {
+    papName = $("#papname").text().trim();
+  
+    if (!papName) {
+      $(".parent-name").hide();
+    } else {
+      $(".parent-name").show(); // Optional
+    }
+  }, 1000);
+  });
+  </script>
+  

@@ -1,0 +1,15 @@
+/* Slider.css */
+.playlist-slider .slick-slide {
+    text-align: center;
+}
+
+.playlist-slider img {
+    width: 75%;
+    height: auto;
+}
+
+.playlist-slider h5 {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}

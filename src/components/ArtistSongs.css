@@ -1,0 +1,94 @@
+/* App.css */
+
+.container {
+    padding: 20px;
+  }
+  
+  .songs-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .song {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .song img {
+    max-width: 100%;
+  }
+  
+  .music-player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-type-toggle {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .search-type-toggle button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .search-type-toggle button.active {
+    background-color: #45a049;
+  }
+  
+  .search-type-toggle button:hover {
+    background-color: #45a049;
+  }
+  
+  /* ArtistSongs.css */
+  
+  .artist-songs-container {
+    padding: 20px;
+  }
+  
+  .back-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .back-button:hover {
+    background-color: #45a049;
+  }
+  
+  .songs-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .song {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .song img {
+    max-width: 100%;
+  }
+  
