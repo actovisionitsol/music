@@ -27,6 +27,9 @@ function App() {
     const isLoading = musicContext.isLoading;
     const setIsLoading = musicContext.setIsLoading;
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+
     const fetchMusicData = async () => {
         setIsLoading(true);
         try {
@@ -93,6 +96,45 @@ function App() {
         return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
     };
 
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const renderPagination = (totalItems) => {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        return (
+            <div className="pagination">
+                <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                >
+                    Previous
+                </button>
+                {[...Array(totalPages).keys()].map((page) => (
+                    <button
+                        key={page}
+                        onClick={() => handlePageChange(page + 1)}
+                        className={currentPage === page + 1 ? "active" : ""}
+                    >
+                        {page + 1}
+                    </button>
+                ))}
+                <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                >
+                    Next
+                </button>
+            </div>
+        );
+    };
+
+    const displayItems = (items) => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        return items.slice(startIndex, endIndex);
+    };
+
     return (
         <>
             <Navbar
@@ -123,23 +165,29 @@ function App() {
                         )}
                         <div id="results-container" className="results-container">
                             {searchType === "album" ? (
-                                <div className="album-grid">
-                                    {albums.map((album) => (
-                                        <div key={album.id} className="album" onClick={() => handleAlbumClick(album)}>
-                                            <h5>{truncateText(album.name, 12)}</h5>
-                                            <img src={album.image[1].url} alt={album.name} />
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : searchType === "playlist" ? (
-                                <div className="playlist-grid">
-                                    {playlists.map((playlist) => (
-                                        <div key={playlist.id} className="playlist" onClick={() => handlePlaylistClick(playlist)}>
-                                            <h5>{truncateText(playlist.name, 12)}</h5>
-                                            <img src={playlist.image[1].url} alt={playlist.name} />
-                                        </div>
-                                    ))}
-                                </div>
+                                <>
+                                    <div className="album-grid">
+                                        {displayItems(albums).map((album) => (
+                                            <div key={album.id} className="album" onClick={() => handleAlbumClick(album)}>
+                                                <h5>{truncateText(album.name, 12)}</h5>
+                                                <img src={album.image[1].url} alt={album.name} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    {albums.length > itemsPerPage && renderPagination(albums.length)}
+                                </>
+                            ) : searchType === "song" ? (
+                                <>
+                                    <div className="song-grid">
+                                        {displayItems(songs).map((song) => (
+                                            <div key={song.id} className="song" onClick={() => setSelectedSong(song)}>
+                                                <h5>{truncateText(song.name, 12)}</h5>
+                                                <img src={song.image[1].url} alt={song.name} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    {songs.length > itemsPerPage && renderPagination(songs.length)}
+                                </>
                             ) : (
                                 <div className="song-list">
                                     {songs.map((item) => (
