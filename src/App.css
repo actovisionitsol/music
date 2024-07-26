@@ -1,6 +1,15 @@
 /* App.css */
+
+body {
+  background-color: #e0f7e9;
+  font-family: Arial, sans-serif;
+}
+
 .container {
   padding: 20px;
+  background-color: #f0fff4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .search-type-toggle {
@@ -14,10 +23,13 @@
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
 }
 
 .search-type-toggle button.active {
-  background-color: #007bff;
+  background-color: #388e3c;
   color: white;
 }
 
@@ -45,9 +57,35 @@
   text-align: center;
 }
 
-@media only screen and (max-width:992px){
-  
-  .collapse:not(.show){
+.album-grid, .song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+}
+
+.pagination button.disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 992px) {
+  .collapse:not(.show) {
     display: block !important;
   }
 }
